@@ -177,6 +177,8 @@ jobs:
           sudo chmod 777 /build
           sudo mkdir -p /build/sources
           sudo chmod 777 /build/sources
+          id
+          whoiam
   
       - name: Build LE in docker container
         run: |
