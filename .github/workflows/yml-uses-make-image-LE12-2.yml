@@ -95,7 +95,7 @@ concurrency:
 
 jobs:
   build_image:
-    runs-on: [self-hosted, nightly]
+    runs-on: ubuntu-24.04
 
     timeout-minutes: 720
 
