@@ -1,0 +1,23 @@
+```yaml
+name: Build LibreELEC EMB-3531
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Show source
+        run: |
+          pwd
+          ls -la
+
+      - name: Build LibreELEC
+        run: |
+          make image
+
