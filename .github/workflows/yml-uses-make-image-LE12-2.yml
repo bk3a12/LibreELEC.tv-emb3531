@@ -170,6 +170,10 @@ jobs:
         run: |
           rm -rf ${{ env.BASEDIR }}/build-root/${{ env.TARGETBUILDDIR }}/.stamps
           rm -rf ${{ env.BASEDIR }}/build-root/${{ env.TARGETBUILDDIR }}/*
+      - name: Ensure host directories exist with correct ownership
+        run: |
+          mkdir -p ${{ env.BASEDIR }}/sources ${{ env.BASEDIR }}/target ${{ env.BASEDIR }}/build-root
+          sudo chown -R $(id -u):$(id -g) ${{ env.BASEDIR }}/sources ${{ env.BASEDIR }}/target ${{ env.BASEDIR }}/build-root
   
       - name: Build LE in docker container
         run: |
