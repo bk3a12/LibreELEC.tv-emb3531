@@ -58,7 +58,7 @@ jobs:
         with:
           ref: libreelec-12.2
           fetch-depth: 2
-          repository: "${{ github.repository_owner }}/LibreELEC.tv"
+          repository: "${{ github.repository_owner }}/LibreELEC.tv-emb3531"
           path: "LibreELEC.tv"
       - name: print latest_commit of checked out LibreELEC/LibreELEC.tv
         run: |
