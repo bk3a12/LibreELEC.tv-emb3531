@@ -170,15 +170,6 @@ jobs:
         run: |
           rm -rf ${{ env.BASEDIR }}/build-root/${{ env.TARGETBUILDDIR }}/.stamps
           rm -rf ${{ env.BASEDIR }}/build-root/${{ env.TARGETBUILDDIR }}/*
-
-      - name: Prepare Docker build directory
-        run: |
-          sudo mkdir -p /build
-          sudo chmod 777 /build
-          sudo mkdir -p /build/sources
-          sudo chmod 777 /build/sources
-          id
-          whoiam
   
       - name: Build LE in docker container
         run: |
@@ -188,6 +179,7 @@ jobs:
                           -v ${{ env.BASEDIR }}/build-root:/build-root \
                           -v "$(pwd)":/build \
                           -w /build -i \
+                          --user $(id -u):$(id -g) \
                           -e PROJECT=${{ env.PROJECT }} \
                           -e ARCH=${{ env.ARCH }} \
                           -e DEVICE=${{ env.DEVICE }} \
