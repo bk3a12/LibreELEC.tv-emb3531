@@ -104,7 +104,7 @@ jobs:
         with:
           ref: ${{ inputs.gitref }}
           fetch-depth: 2
-          repository: "${{ github.repository_owner }}/LibreELEC.tv"
+          repository: "${{ github.repository_owner }}/LibreELEC.tv-emb3531"
           path: "LibreELEC.tv"
 
       - name: Customise the checked out git repository
