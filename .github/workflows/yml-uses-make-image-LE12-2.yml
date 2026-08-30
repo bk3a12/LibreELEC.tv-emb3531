@@ -275,27 +275,6 @@ jobs:
             echo "EOF"
           } >> "${GITHUB_OUTPUT}"
 
-      - name: Notify failed image builds
-        if: steps.failures.outputs.has_failures == 'true'
-        uses: slackapi/slack-github-action@v3
-        with:
-          webhook: ${{ secrets.ADDONS_REPO_WEBHOOK_URL }}
-          webhook-type: incoming-webhook
-          payload: |
-            username: "ADDON Bot"
-            icon_emoji: ":ghost:"
-            channel: "${{ secrets.ADDONS_REPO_WEBHOOK_CHANNEL }}"
-            blocks:
-              - type: header
-                text:
-                  type: plain_text
-                  text: ":red_circle: Build failures"
-                  emoji: true
-              - type: section
-                text:
-                  type: mrkdwn
-                  text: "${{ steps.failures.outputs.text }}"
-
       - name: Clean up - remove docker image tag
         if: always()
         run: |
@@ -347,23 +326,3 @@ jobs:
             done
           fi
 
-      - name: Notify job failure
-        if: failure()
-        uses: slackapi/slack-github-action@v3
-        with:
-          webhook: ${{ secrets.ADDONS_REPO_WEBHOOK_URL }}
-          webhook-type: incoming-webhook
-          payload: |
-            username: "ADDON Bot"
-            icon_emoji: ":ghost:"
-            channel: "${{ secrets.ADDONS_REPO_WEBHOOK_CHANNEL }}"
-            blocks:
-              - type: header
-                text:
-                  type: plain_text
-                  text: ":red_circle: Job failed"
-                  emoji: true
-              - type: section
-                text:
-                  type: mrkdwn
-                  text: "*${{ inputs.group }}*\n<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View run>"
