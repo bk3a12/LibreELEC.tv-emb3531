@@ -40,5 +40,4 @@ jobs:
       version: "12.2"
 
       file_extension: "img.gz,img.gz.sha256"
-```
 
