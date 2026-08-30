@@ -1,0 +1,44 @@
+```yaml
+name: Build LibreELEC 12.2 EMB-3531
+
+on:
+  workflow_dispatch:
+    inputs:
+      gitref:
+        description: "Git ref to build"
+        required: false
+        default: "libreelec-12.2-emb3531"
+        type: string
+
+jobs:
+  build:
+    uses: ./.github/workflows/yml-uses-make-image-LE12-2.yml
+
+    with:
+      clean_le: "clean_le"
+      debug: "debug"
+      ephemeral: "ephemeral"
+      upload: "no_upload"
+
+      buildcmd: "make image"
+
+      gitref: ${{ inputs.gitref }}
+
+      group: "EMB-3531-RK3399"
+
+      project: "Rockchip"
+      arch: "arm"
+
+      device: "rk3399"
+
+      targetbuilddir: "Rockchip_RK3399"
+
+      buildperiodic: "manual"
+
+      ccachecachesize: "10G"
+
+      version: "12.2"
+
+      file_extension: "img.gz,img.gz.sha256"
+```
+
