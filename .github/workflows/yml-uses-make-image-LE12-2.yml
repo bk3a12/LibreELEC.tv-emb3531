@@ -171,6 +171,13 @@ jobs:
           rm -rf ${{ env.BASEDIR }}/build-root/${{ env.TARGETBUILDDIR }}/.stamps
           rm -rf ${{ env.BASEDIR }}/build-root/${{ env.TARGETBUILDDIR }}/*
 
+      - name: Prepare Docker build directory
+        run: |
+          sudo mkdir -p /build
+          sudo chmod 777 /build
+          sudo mkdir -p /build/sources
+          sudo chmod 777 /build/sources
+  
       - name: Build LE in docker container
         run: |
           cd LibreELEC.tv
