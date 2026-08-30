@@ -187,7 +187,8 @@ jobs:
                           -e BUILD_DIR=${{ env.build_dir }} \
                           -e BUILD_PERIODIC=${{ env.BUILD_PERIODIC }} \
                           -e CCACHE_DISABLE=${{ env.CCACHE_DISABLE }} \
-                          gh-${{ github.run_id }} ${{ inputs.buildcmd }} ${{ env.NOOBS }}
+                          gh-${{ github.run_id }} ${{ inputs.buildcmd }} ${{ env.NOOBS }} \
+                          sh -c 'id; echo "--- /build"; ls -ld /build; echo "--- /build/sources"; ls -ld /build/sources 2>&1 || true; echo "--- /sources"; ls -ld /sources; echo "--- test"; mkdir /build/sources/TEST 2>&1'
         continue-on-error: true
 
       - name: Prepare artifacts - ephemeral
