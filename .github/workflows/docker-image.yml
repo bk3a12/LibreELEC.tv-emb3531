@@ -1,4 +1,3 @@
-```yaml
 name: Build LibreELEC 12.2 EMB-3531
 
 on:
