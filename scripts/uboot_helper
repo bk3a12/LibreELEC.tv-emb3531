@@ -312,6 +312,11 @@ devices = \
         'dtb': 'rk3328-rock64.dtb',
         'soc': 'RK3328'
       },
+      'emb3531': {
+        'config': 'emb3531-rk3399_defconfig',
+        'dtb': 'rk3399-emb3531.dtb',
+        'soc': 'RK3399'
+      },
       'khadas-edge': {
         'config': 'khadas-edge-rk3399_defconfig',
         'dtb': 'rk3399-khadas-edge.dtb',
@@ -534,6 +539,10 @@ devices = \
       },
     },
     'RK3399': {
+      'emb3531': {
+        'dtb': 'rk3399-emb3531.dtb',
+        'config': 'emb3531-rk3399_defconfig'
+      },    
       'khadas-edge': {
         'dtb': 'rk3399-khadas-edge.dtb',
         'config': 'khadas-edge-rk3399_defconfig'
