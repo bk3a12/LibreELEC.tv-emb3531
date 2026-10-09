@@ -12,7 +12,7 @@ new file mode 100644
 index 000000000000..215ba9dbcdcc
 --- /dev/null
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-emb3531.dts
-@@ -0,0 +1,821 @@
+@@ -0,0 +1,823 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
 +/dts-v1/;
@@ -33,6 +33,8 @@ index 000000000000..215ba9dbcdcc
 +		ethernet0 = &gmac;
 +		mmc0 = &sdmmc;
 +		mmc1 = &sdhci;
++		rtc0 = &pcf8563;
++		rtc1 = &rk808;
 +	};
 +
 +	chosen {
@@ -639,7 +641,7 @@ index 000000000000..215ba9dbcdcc
 +	clock-frequency = <0x61a80>;
 +	i2c-scl-rising-time-ns = <0x1c2>;
 +	i2c-scl-falling-time-ns = <0x0f>;
-+	rtc@51 {
++	pcf8563: rtc@51 {
 +		compatible = "nxp,pcf8563";
 +		reg = <0x51>;
 +	};
