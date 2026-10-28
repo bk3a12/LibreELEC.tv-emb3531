@@ -15081,7 +15081,7 @@ index 0000000..673a269
 +	uint16_t s1, t1; /*unsigned int*/
 +	uint16_t value_s, value_t; /*unsigned int*/
 +    uint8_t buffer;
-+	char bits_to_go;
++	int8_t bits_to_go;
 +    int		dec_bypass;
 +
 +    cavs_bitstream bs;
@@ -24228,8 +24228,8 @@ index 0000000..673a269
 +
 +}
 +
-+char AVS_2DVLC_INTRA_dec_4x4[7][40][2] = {{{-1,-1}}};
-+char AVS_2DVLC_INTER_dec_4x4[7][40][2] = {{{-1,-1}}};
++int8_t AVS_2DVLC_INTRA_dec_4x4[7][40][2] = {{{-1,-1}}};
++int8_t AVS_2DVLC_INTER_dec_4x4[7][40][2] = {{{-1,-1}}};
 +const int SCAN_4x4[16][2] =
 +{
 +	{0,0},{1,0},{0,1},{0,2},
