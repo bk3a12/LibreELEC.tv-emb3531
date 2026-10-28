@@ -184,6 +184,10 @@ devices = \
         'dtb': 'sun50i-h313-x96q.dtb',
         'config': 'x96q_defconfig',
       },
+      'x98h': {
+        'dtb': 'sun50i-h618-x98h.dtb',
+        'config': 'x98h_defconfig',
+      },
       'yuzukihd-chameleon': {
         'dtb': 'sun50i-h618-yuzukihd-chameleon.dtb',
         'config': 'yuzukihd-chameleon_defconfig',
